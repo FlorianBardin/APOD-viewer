@@ -59,12 +59,14 @@ const App = () => {
       ) : picErrorMessage ? (
         <p>{picErrorMessage}</p>
       ) : (
-        <div>
-          <h1>Image du jour</h1>
-          <img src="fake_display.jpg" alt="Image du jour" />
-          <p>Explication de l'image du jour</p>
-        </div>
+        <div
+          className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
+          style={{
+            backgroundImage: "url(fake_display.jpg)",
+          }}
+        ></div>
       )}
+      <div className="relative w-full h-screen z-10"></div>
     </main>
   );
 };
