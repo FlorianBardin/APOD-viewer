@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Spinner from "./components/Spinner";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
@@ -13,14 +12,16 @@ const API_OPTION = {
 
 const App = () => {
   const [picData, setPicData] = useState("");
-  const [picDate, setPicDate] = useState("");
+  const [picDate, setPicDate] = useState(new Date());
   const [picIsLoading, setPicIsLoading] = useState(false);
   const [picErrorMessage, setPicErrorMessage] = useState("");
 
-  const fetchPictureData = async () => {
+  const fetchPictureData = async (date) => {
     setPicIsLoading(true);
     try {
-      const endpoint = `${API_BASE_URL}${API_KEY}`;
+      const endpoint = `${API_BASE_URL}${API_KEY}&date=${date
+        .toJSON()
+        .slice(0, 10)}`;
       const response = await fetch(endpoint, API_OPTION);
 
       if (!response.ok) {
