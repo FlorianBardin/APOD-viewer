@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Spinner from "./components/Spinner";
+import Loading from "./components/Loading";
 import { PopoverCal } from "./components/PopoverCal";
 import { BottomCalendar } from "./components/BottomCalendar";
 import InfoDrawer from "./components/InfoDrawer";
@@ -58,7 +58,7 @@ const App = () => {
   return (
     <main className="bg-background">
       {picIsLoading ? (
-        <Spinner />
+        <Loading />
       ) : picErrorMessage ? (
         <p>{picErrorMessage}</p>
       ) : (
