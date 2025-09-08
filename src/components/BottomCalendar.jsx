@@ -1,13 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
 
 import { Calendar } from "@/components/ui/calendar";
 
-export function BottomCalendar() {
-  const [date, setDate] = useState(new Date());
-
+export function BottomCalendar({ date, setDate }) {
   return (
     <Calendar
       mode="single"
