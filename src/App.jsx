@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import Spinner from "./components/Spinner";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
 const API_BASE_URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -45,6 +46,10 @@ const App = () => {
       setPicIsLoading(true);
     }
   };
+
+  // useEffect(() => {
+  //   fetchPictureData();
+  // }, []);
 
   return (
     <main>
