@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import { PopoverCal } from "./components/PopoverCal";
-import { BottomCalendar } from "./components/BottomCalendar";
 import InfoDrawer from "./components/InfoDrawer";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
@@ -38,8 +37,6 @@ const App = () => {
         return;
       }
 
-      console.log(data);
-
       setPicData(data);
     } catch (error) {
       console.log(error);
@@ -61,11 +58,18 @@ const App = () => {
         <Loading />
       ) : picErrorMessage ? (
         <p>{picErrorMessage}</p>
-      ) : (
+      ) : picData.hdurl ? (
         <div
           className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
           style={{
             backgroundImage: `url(${picData.hdurl})`,
+          }}
+        ></div>
+      ) : (
+        <div
+          className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
+          style={{
+            backgroundImage: `url(${picData.url})`,
           }}
         ></div>
       )}
