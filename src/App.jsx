@@ -48,7 +48,17 @@ const App = () => {
 
   return (
     <main>
-      <p>Hello world</p>
+      {picIsLoading ? (
+        <Spinner />
+      ) : picErrorMessage ? (
+        <p>{picErrorMessage}</p>
+      ) : (
+        <div>
+          <h1>Image du jour</h1>
+          <img src="fake_display.jpg" alt="Image du jour" />
+          <p>Explication de l'image du jour</p>
+        </div>
+      )}
     </main>
   );
 };
