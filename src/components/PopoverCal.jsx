@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Popover,
   PopoverContent,
@@ -8,14 +6,14 @@ import {
 } from "@/components/ui/popover";
 import { BottomCalendar } from "./BottomCalendar";
 
-export function PopoverCal() {
+export function PopoverCal({ date, setDate }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">Open popover</Button>
+        <Button variant="outline">Select Another Day</Button>
       </PopoverTrigger>
       <PopoverContent>
-        <BottomCalendar />
+        <BottomCalendar date={date} setDate={setDate} />
       </PopoverContent>
     </Popover>
   );
