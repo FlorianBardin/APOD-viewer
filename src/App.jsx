@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import { PopoverCal } from "./components/PopoverCal";
-import InfoDrawer from "./components/InfoDrawer";
+import LeftDrawer from "./components/LeftDrawer";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
 const API_BASE_URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -20,10 +20,10 @@ const App = () => {
 
   const fetchPictureData = async (date) => {
     setPicIsLoading(true);
+    setPicErrorMessage("");
     try {
-      const endpoint = `${API_BASE_URL}${API_KEY}&date=${date
-        .toJSON()
-        .slice(0, 10)}`;
+      const convertedDate = new Intl.DateTimeFormat("fr-CA").format(date);
+      const endpoint = `${API_BASE_URL}${API_KEY}&date=${convertedDate}`;
       const response = await fetch(endpoint, API_OPTION);
 
       if (!response.ok) {
@@ -57,7 +57,9 @@ const App = () => {
       {picIsLoading ? (
         <Loading />
       ) : picErrorMessage ? (
-        <p>{picErrorMessage}</p>
+        <p className="absolute w-full h-screen flex justify-center items-center text-red-400">
+          {picErrorMessage}
+        </p>
       ) : picData.hdurl ? (
         <div
           className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
@@ -67,15 +69,19 @@ const App = () => {
         ></div>
       ) : (
         <div
-          className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
+          className="bg-image"
           style={{
             backgroundImage: `url(${picData.url})`,
           }}
         ></div>
       )}
-      <div className="relative w-full h-screen z-10 flex flex-col justify-end items-center gap-3.5 pb-10">
-        <PopoverCal date={picDate} setDate={setPicDate} />
-        <InfoDrawer title={picData.title} desc={picData.explanation} />
+      <div className="absolute w-full h-screen flex flex-col justify-end">
+        <div className="absolute w-full h-screen flex-1 flex">
+          <LeftDrawer title={picData.title} desc={picData.explanation} />
+        </div>
+        <div className="absolute mb-10 flex self-center">
+          <PopoverCal date={picDate} setDate={setPicDate} />
+        </div>
       </div>
     </main>
   );
