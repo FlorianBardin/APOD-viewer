@@ -75,11 +75,11 @@ const App = () => {
           }}
         ></div>
       )}
-      <div className="absolute w-full h-screen flex flex-col justify-end">
-        <div className="absolute w-full h-screen flex-1 flex">
+      <div className="absolute w-full h-screen flex flex-col justify-center">
+        <div className="absolute inset-y-0 left-0 flex items-center">
           <LeftDrawer title={picData.title} desc={picData.explanation} />
         </div>
-        <div className="absolute mb-10 flex self-center">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <PopoverCal date={picDate} setDate={setPicDate} />
         </div>
       </div>
