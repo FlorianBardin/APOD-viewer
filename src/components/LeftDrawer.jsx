@@ -2,12 +2,15 @@
 
 import { Drawer } from "vaul";
 import { Button } from "@/components/ui/button";
+import rightArrow from "../assets/rightArrow.svg";
 
-export default function InfoDrawer({ title, desc }) {
+export default function LeftDrawer({ title, desc }) {
   return (
     <Drawer.Root direction="left">
       <Drawer.Trigger>
-        <Button variant="outline">About this picture</Button>
+        <Button variant="leftOutline" size="border">
+          <img src={rightArrow} alt="Right arrow" className="w-4.5" />
+        </Button>
       </Drawer.Trigger>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40" />
