@@ -12,7 +12,10 @@ export function BottomCalendar({ date, setDate }) {
       onSelect={setDate}
       className="rounded-md border shadow-sm"
       captionLayout="dropdown"
-      disabled={(date) => date > new Date()}
+      disabled={(date) =>
+        date > new Date() ||
+        date < new Date("Fri Jun 16 1995 00:00:00 GMT+0200")
+      }
     />
   );
 }
