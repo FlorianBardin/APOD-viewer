@@ -3,8 +3,6 @@
 **APOD Viewer** is a web application that lets you explore the daily astronomy pictures published by NASA through the [Astronomy Picture of the Day (APOD)](https://api.nasa.gov/) API.  
 It provides a modern, simple, and interactive interface built with **React.js**, **TailwindCSS**, **Shadcn/ui**, and the **APOD API**.
 
----
-
 ## ⚙️ Features
 
 ### User Interface
@@ -18,8 +16,6 @@ It provides a modern, simple, and interactive interface built with **React.js**,
 
 - `fetchPictureData(date)` : function to fetch image data for a specific date.
 - **`useDebounce` Hook** : reduces unnecessary API calls when changing dates quickly or spamming inputs.
-
----
 
 ## 🛠️ Installation & Usage
 
@@ -61,8 +57,6 @@ npm run dev
 
 The app will be available at:  
 🔗 [http://localhost:5173](http://localhost:5173)
-
----
 
 ## 📜 License
 
