@@ -15,7 +15,7 @@ It provides a modern, simple, and interactive interface built with **React.js**,
 ### Technical
 
 - `fetchPictureData(date)` : function to fetch image data for a specific date.
-- **`useDebounce` Hook** : reduces unnecessary API calls when changing dates quickly or spamming inputs.
+- `useDebounce` Hook : reduces unnecessary API calls when changing dates quickly or spamming inputs.
 
 ## 🛠️ Installation & Usage
 
@@ -26,8 +26,7 @@ It provides a modern, simple, and interactive interface built with **React.js**,
 
 ### Installation
 
-```
-
+```bash
 # Clone the repository
 
 git clone https://github.com/FlorianBardin/APOD-viewer.git
@@ -45,13 +44,13 @@ npm install
 
 Create a **`.env.local`** file at the root of the project and add your API key:
 
-```
+```bash
 VITE_APOD_API_KEY=YOUR_API_KEY
 ```
 
 ### Start the development server
 
-```
+```bash
 npm run dev
 ```
 
