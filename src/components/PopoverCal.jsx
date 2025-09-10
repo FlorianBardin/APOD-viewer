@@ -10,7 +10,7 @@ export function PopoverCal({ date, setDate }) {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button variant="outline">Select Another Day</Button>
+        <Button variant="outline">Open Calendar</Button>
       </PopoverTrigger>
       <PopoverContent>
         <BottomCalendar date={date} setDate={setDate} />
