@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Loading from "./components/Loading";
 import { PopoverCal } from "./components/PopoverCal";
 import LeftDrawer from "./components/LeftDrawer";
+import { useDebounce } from "react-use";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
 const API_BASE_URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -15,8 +16,11 @@ const API_OPTION = {
 const App = () => {
   const [picData, setPicData] = useState("");
   const [picDate, setPicDate] = useState(new Date());
+  const [debouncedPicDate, setdebouncedPicDate] = useState();
   const [picIsLoading, setPicIsLoading] = useState(false);
   const [picErrorMessage, setPicErrorMessage] = useState("");
+
+  useDebounce(() => setdebouncedPicDate(picDate), 300, [picDate]);
 
   const fetchPictureData = async (date) => {
     setPicIsLoading(true);
@@ -49,8 +53,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchPictureData(picDate);
-  }, [picDate]);
+    fetchPictureData(debouncedPicDate);
+  }, [debouncedPicDate]);
 
   return (
     <main className="bg-background">
