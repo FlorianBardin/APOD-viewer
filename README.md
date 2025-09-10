@@ -1,12 +1,70 @@
-# React + Vite
+# 🌌 APOD Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**APOD Viewer** is a web application that lets you explore the daily astronomy pictures published by NASA through the [Astronomy Picture of the Day (APOD)](https://api.nasa.gov/) API.  
+It provides a modern, simple, and interactive interface built with **React.js**, **TailwindCSS**, **Shadcn/ui**, and the **APOD API**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Features
 
-## Expanding the ESLint configuration
+### User Interface
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Interactive calendar**: only allows selection of dates when an image is available.
+- **"Open Calendar" button**: toggles the calendar view.
+- **Information panel**: displays the image title and description.
+- **Smooth user experience**: minimalist, responsive design suitable for any device.
+
+### Technical
+
+- `fetchPictureData(date)` : function to fetch image data for a specific date.
+- **`useDebounce` Hook** : reduces unnecessary API calls when changing dates quickly or spamming inputs.
+
+---
+
+## 🛠️ Installation & Usage
+
+### Requirements
+
+- [Node.js & npm](https://nodejs.org/)
+- **APOD API key** from [api.nasa.gov](https://api.nasa.gov/)
+
+### Installation
+
+```
+
+# Clone the repository
+
+git clone https://github.com/FlorianBardin/APOD-viewer.git
+
+# Navigate into the project
+
+cd APOD-viewer
+
+# Install dependencies
+
+npm install
+```
+
+### Configuration
+
+Create a **`.env.local`** file at the root of the project and add your API key:
+
+```
+VITE_APOD_API_KEY=YOUR_API_KEY
+```
+
+### Start the development server
+
+```
+npm run dev
+```
+
+The app will be available at:  
+🔗 [http://localhost:5173](http://localhost:5173)
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.  
+You are free to use, modify, and share it.
