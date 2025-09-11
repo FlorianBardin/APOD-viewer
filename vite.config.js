@@ -9,6 +9,8 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  // eslint-disable-next-line no-undef
+  base: process.env.VITE_BASE_PATH || "/APOD-viewer",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
