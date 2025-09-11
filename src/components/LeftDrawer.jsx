@@ -19,8 +19,8 @@ export default function LeftDrawer({ title, desc }) {
           // The gap between the edge of the screen and the drawer is 8px in this case.
           style={{ "--initial-transform": "calc(100% + 8px)" }}
         >
-          <div className="border bg-background h-full w-full grow p-5 flex flex-col items-start rounded-[16px]">
-            <div className="max-w-md">
+          <div className="border bg-background h-full w-full grow p-5 flex flex-col items-start rounded-[16px] z-30">
+            <div className="flex flex-col overflow-scroll">
               <Drawer.Title className="text-accent-foreground font-medium mb-2">
                 {title}
               </Drawer.Title>
