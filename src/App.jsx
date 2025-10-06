@@ -3,6 +3,7 @@ import Loading from "./components/Loading";
 import { PopoverCal } from "./components/PopoverCal";
 import LeftDrawer from "./components/LeftDrawer";
 import { useDebounce } from "react-use";
+import ErrorCard from "./components/ErrorCard";
 
 const API_KEY = import.meta.env.VITE_APOD_API_KEY;
 const API_BASE_URL = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -44,9 +45,7 @@ const App = () => {
       setPicData(data);
     } catch (error) {
       console.log(error);
-      setPicErrorMessage(
-        `Erreur de récupération des données de la photo. : ${error}`
-      );
+      setPicErrorMessage(`${error}`);
     } finally {
       setPicIsLoading(false);
     }
@@ -61,9 +60,9 @@ const App = () => {
       {picIsLoading ? (
         <Loading />
       ) : picErrorMessage ? (
-        <p className="absolute w-full h-screen flex justify-center items-center text-red-400">
-          {picErrorMessage}
-        </p>
+        <div className="absolute w-full h-screen flex justify-center items-center">
+          <ErrorCard error={picErrorMessage} />
+        </div>
       ) : picData.hdurl ? (
         <div
           className="absolute w-full h-screen bg-cover bg-center z-0 bg-primary"
