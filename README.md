@@ -4,7 +4,8 @@
 It provides a modern, simple, and interactive interface built with **React.js**, **TailwindCSS**, **Shadcn/ui**, and the **APOD API**.
 
 >[!NOTE]
->You can access it now [here](https://apod-viewer-iota.vercel.app/)!
+>The API is no longer available
+>Due to the lapse in federal government funding, NASA is not updating this API.
 
 ## ⚙️ Features
 
